@@ -1,0 +1,6 @@
+{
+  "name": "EIRA — Luxury Coastal Resort",
+  "description": "A Little Closer to Paradise. Twenty-two ocean-facing rooms, a sea-water spa, and seasonal coastal dining on Saltmere Bay.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

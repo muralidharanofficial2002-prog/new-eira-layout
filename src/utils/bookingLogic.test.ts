@@ -43,7 +43,7 @@ test('filterAvailableRooms matches guest capacity and specific room selection', 
 
   const specificLagoon = filterAvailableRooms(ROOMS_DATA, 'harbour-room', 2, 0);
   assert.equal(specificLagoon.length, 1);
-  assert.equal(specificLagoon[0].name, 'Lagoon Verandah Room');
+  assert.equal(specificLagoon[0].name, 'The Haven');
 });
 
 test('calculateStayQuote computes base subtotal in INR and applies eligible seasonal offer discounts', () => {
@@ -59,7 +59,7 @@ test('calculateStayQuote computes base subtotal in INR and applies eligible seas
   assert.equal(quoteWithOffer.subtotal, 114000);
   assert.equal(quoteWithOffer.discountAmount, 17100);
   assert.equal(quoteWithOffer.finalTotal, 96900);
-  assert.equal(quoteWithOffer.appliedOfferTitle, 'The Unhurried Konkan Week');
+  assert.equal(quoteWithOffer.appliedOfferTitle, 'The Weekend Escape');
 });
 
 test('validateEmail rejects empty or malformed addresses and accepts valid emails', () => {

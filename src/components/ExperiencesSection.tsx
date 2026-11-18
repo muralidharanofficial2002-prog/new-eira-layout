@@ -19,27 +19,36 @@ export const ExperiencesSection: React.FC<ExperiencesSectionProps> = ({
       className="w-full bg-[#F4F6F3] pt-20 sm:pt-28 lg:pt-36 pb-12 sm:pb-16"
     >
       <div id="outdoors" className="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* Editorial Heading Block */}
+        {/* Section 06: EXPERIENCES SECTION Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 sm:mb-18">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#80B8B4] mb-3">
-              Between Tides · Coastal Wellness &amp; Rituals
+              BEYOND YOUR STAY
             </p>
             <h2
               id="experiences-heading"
               className="font-serif-editorial text-[#252B2D] font-medium leading-[1.12] max-w-[18ch]"
               style={{ fontSize: 'clamp(2.1rem, 4vw, 3.45rem)', textWrap: 'balance' }}
             >
-              Days measured in <em className="italic font-normal text-[#80B8B4]">tides,</em> not timetables.
+              Less planning. <em className="italic font-normal text-[#80B8B4]">More living.</em>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-[15px] text-[#252B2D]/80 leading-[1.7] max-w-[46ch]">
-            Select any coastal ritual below to explore our warm seawater thalassotherapy pool, sunrise lagoon crossings, and guided laterite cliff trails.
-          </p>
+          <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row sm:items-end gap-4">
+            <p className="text-sm sm:text-[15px] text-[#252B2D]/80 leading-[1.7] max-w-[46ch]">
+              A little adventure, a little stillness, and countless beautiful moments. Discover experiences that make every day feel different.
+            </p>
+            <button
+              type="button"
+              onClick={() => onSelectExperience(EXPERIENCES_DATA[expandedIndex])}
+              className="px-6 py-2.5 rounded-full bg-[#252B2D] text-[#F4F6F3] text-[11px] font-semibold uppercase tracking-[0.16em] hover:bg-[#80B8B4] hover:text-[#252B2D] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              Discover Experiences
+            </button>
+          </div>
         </div>
 
-        {/* Interactive Numbered Editorial Index (01, 02, 03) */}
+        {/* Interactive Numbered Editorial Index (01, 02, 03, 04) */}
         <div className="border-t border-[#252B2D]/15">
           {EXPERIENCES_DATA.map((exp, idx) => {
             const isExpanded = idx === expandedIndex;
@@ -56,15 +65,21 @@ export const ExperiencesSection: React.FC<ExperiencesSectionProps> = ({
                       <span className="font-serif-editorial text-3xl sm:text-4xl font-normal text-[#80B8B4] tabular-nums">
                         {numberLabel}
                       </span>
+                      <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-[#252B2D]/55 mt-1">
+                        Experience {numberLabel}
+                      </span>
                     </div>
 
-                    <div className="lg:col-span-5 space-y-4">
+                    <div className="lg:col-span-5 space-y-3.5">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#252B2D]/65">
                         {exp.schedule}
                       </p>
                       <h3 className="font-serif-editorial text-3xl sm:text-4xl font-normal text-[#252B2D]">
                         {exp.title}
                       </h3>
+                      <p className="font-serif-editorial italic text-base sm:text-lg text-[#80B8B4]">
+                        {exp.subtitle}
+                      </p>
                       <p className="text-sm sm:text-[15px] text-[#252B2D]/80 leading-relaxed max-w-[46ch]">
                         {exp.description}
                       </p>
@@ -77,10 +92,10 @@ export const ExperiencesSection: React.FC<ExperiencesSectionProps> = ({
                         <button
                           type="button"
                           onClick={() => onSelectExperience(exp)}
-                          aria-label={`Explore ${exp.title} — ${exp.subtitle}`}
+                          aria-label={`Discover ${exp.title} — ${exp.subtitle}`}
                           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#252B2D] text-[#F4F6F3] text-[11px] font-semibold uppercase tracking-[0.16em] hover:bg-[#80B8B4] hover:text-[#252B2D] transition-colors cursor-pointer"
                         >
-                          <span>Explore {exp.title}</span>
+                          <span>Discover Experiences</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
@@ -129,7 +144,7 @@ export const ExperiencesSection: React.FC<ExperiencesSectionProps> = ({
                         setExpandedIndex(idx);
                       }
                     }}
-                    aria-label={`Expand ${exp.title} (${exp.subtitle})`}
+                    aria-label={`Expand Experience ${numberLabel} — ${exp.title} (${exp.subtitle})`}
                     className="py-6 sm:py-7 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 items-center hover:bg-[#D7E4E1]/45 px-3 -mx-3 rounded-2xl transition-colors cursor-pointer group"
                   >
                     <div className="lg:col-span-2">
@@ -143,7 +158,7 @@ export const ExperiencesSection: React.FC<ExperiencesSectionProps> = ({
                         {exp.title}
                       </h3>
                       <p className="text-xs text-[#252B2D]/65 mt-0.5">
-                        {exp.subtitle} · {exp.schedule}
+                        {exp.subtitle}
                       </p>
                     </div>
 

@@ -135,13 +135,17 @@ export default function App() {
             onSelectExperience={(exp) => setActiveExperience(exp)}
           />
 
-          {/* Section 8: Seasonal Offers */}
+          {/* Section 07: Special Offers */}
           <OffersSection
             onSelectOffer={(offer) => setActiveOfferDetail(offer)}
+            onViewAllOffers={openAvailabilitySubpage}
           />
 
-          {/* Section 9: Guest Chronicles */}
-          <TestimonialSection />
+          {/* Sections 08–12: Lifestyle, Gallery, Guest Stories, Newsletter, Final CTA */}
+          <TestimonialSection
+            onBookYourStay={openAvailabilitySubpage}
+            onExploreStays={() => handleNavigateHomeSection('#stay')}
+          />
         </main>
       )}
 

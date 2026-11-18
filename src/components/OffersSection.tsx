@@ -4,9 +4,13 @@ import { SEASONAL_OFFERS, SeasonalOffer } from '../data/resortData';
 
 interface OffersSectionProps {
   onSelectOffer: (offer: SeasonalOffer) => void;
+  onViewAllOffers?: () => void;
 }
 
-export const OffersSection: React.FC<OffersSectionProps> = ({ onSelectOffer }) => {
+export const OffersSection: React.FC<OffersSectionProps> = ({
+  onSelectOffer,
+  onViewAllOffers,
+}) => {
   return (
     <section
       id="offers"
@@ -14,23 +18,40 @@ export const OffersSection: React.FC<OffersSectionProps> = ({ onSelectOffer }) =
       className="w-full bg-[#F4F6F3] pt-12 sm:pt-16 pb-20 sm:pb-28 lg:pb-36"
     >
       <div className="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
+        {/* Section 07: SPECIAL OFFERS SECTION Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#80B8B4] mb-3">
-              Offers · Curated Coastal Sojourns
+              CURATED ESCAPES
             </p>
             <h2
               id="offers-heading"
               className="font-serif-editorial text-[#252B2D] font-medium leading-[1.12]"
               style={{ fontSize: 'clamp(2.1rem, 3.9vw, 3.45rem)' }}
             >
-              <em className="italic font-normal text-[#80B8B4]">Seasonal retreats</em> along the Konkan coast
+              Every reason to stay{' '}
+              <em className="italic font-normal text-[#80B8B4]">a little longer.</em>
             </h2>
           </div>
 
-          <p className="text-xs sm:text-sm text-[#252B2D]/75 max-w-[40ch] leading-relaxed">
-            Every curated package includes daily Morning Harvest breakfast at The Verandah and unhurried access to our Samudra seawater thermal pool.
-          </p>
+          <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row sm:items-end gap-4">
+            <p className="text-xs sm:text-sm text-[#252B2D]/75 max-w-[44ch] leading-relaxed">
+              A beautiful getaway deserves something extra. Explore thoughtfully curated stay experiences made for every kind of escape.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                if (onViewAllOffers) {
+                  onViewAllOffers();
+                } else {
+                  onSelectOffer(SEASONAL_OFFERS[0]);
+                }
+              }}
+              className="px-6 py-2.5 rounded-full bg-[#252B2D] text-[#F4F6F3] text-[11px] font-semibold uppercase tracking-[0.16em] hover:bg-[#80B8B4] hover:text-[#252B2D] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              View All Offers
+            </button>
+          </div>
         </div>
 
         {/* Asymmetric Architectural Offer Cards (Center card highlighted in Charcoal #252B2D) */}
@@ -56,16 +77,24 @@ export const OffersSection: React.FC<OffersSectionProps> = ({ onSelectOffer }) =
                     }`}
                   >
                     <span>
-                      0{idx + 1} · {offer.category}
+                      Offer 0{idx + 1}
                     </span>
                     <span className="tabular-nums">
                       {offer.discountPercent}% Privilege · {offer.minNights}+ Nights
                     </span>
                   </div>
 
-                  <h3 className="font-serif-editorial text-2xl sm:text-3xl font-normal mb-3">
+                  <h3 className="font-serif-editorial text-2xl sm:text-3xl font-normal mb-1.5">
                     {offer.title}
                   </h3>
+
+                  <p
+                    className={`font-serif-editorial italic text-sm sm:text-base mb-3 ${
+                      isHighlighted ? 'text-[#80B8B4]' : 'text-[#252B2D]/85'
+                    }`}
+                  >
+                    {offer.subtitle}
+                  </p>
 
                   <p
                     className={`text-sm sm:text-[15px] leading-[1.7] mb-6 ${
@@ -106,12 +135,14 @@ export const OffersSection: React.FC<OffersSectionProps> = ({ onSelectOffer }) =
                   <button
                     type="button"
                     onClick={() => onSelectOffer(offer)}
-                    aria-label={`View offer: ${offer.title}`}
+                    aria-label={`Explore Offer: ${offer.title}`}
                     className={`inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.16em] cursor-pointer whitespace-nowrap shrink-0 ${
-                      isHighlighted ? 'text-[#80B8B4] hover:text-[#D7E4E1]' : 'text-[#252B2D] hover:text-[#80B8B4]'
+                      isHighlighted
+                        ? 'text-[#80B8B4] hover:text-[#D7E4E1]'
+                        : 'text-[#252B2D] hover:text-[#80B8B4]'
                     }`}
                   >
-                    <span>View offer</span>
+                    <span>Explore Offer</span>
                     <ArrowUpRight
                       aria-hidden="true"
                       className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

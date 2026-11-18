@@ -33,7 +33,10 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="relative w-full bg-[#252B2D] text-[#F4F6F3] pt-20 sm:pt-24 pb-10 overflow-hidden">
+    <footer
+      id="contact"
+      className="relative w-full bg-[#252B2D] text-[#F4F6F3] pt-20 sm:pt-24 pb-10 overflow-hidden"
+    >
       {/* Large subtle coastal landscape line-art illustration behind footer content */}
       <CoastalLandscapeLineArt
         strokeColor="#80B8B4"
@@ -41,21 +44,39 @@ export const Footer: React.FC<FooterProps> = ({
       />
 
       <div className="relative z-10 max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* Top Row: Explore, Visit, Follow & Brand Description */}
+        {/* Section 13: FOOTER Columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-[#D7E4E1]/15">
+          {/* Brand Summary Column */}
+          <div className="lg:col-span-4">
+            <div className="mb-3">
+              <EiraLogoMark color="#F4F6F3" showCrest={true} />
+            </div>
+            <p className="font-serif-editorial italic text-base text-[#80B8B4] mb-3">
+              Where Every Stay Becomes a Memory
+            </p>
+            <p className="text-sm text-[#D7E4E1]/80 leading-relaxed max-w-[36ch]">
+              An intimate coastal escape where thoughtful comfort, beautiful surroundings, and unforgettable experiences come together.
+            </p>
+          </div>
+
           {/* Explore Column */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <h3 className="font-serif-editorial text-xl text-[#80B8B4] mb-4">
               Explore
             </h3>
             <ul className="space-y-2.5 text-sm text-[#D7E4E1]/85">
+              <li>
+                <a href="#top" className="hover:text-[#F4F6F3] transition-colors">
+                  Home
+                </a>
+              </li>
               <li>
                 <a
                   href="#stay"
                   onClick={onViewAllRooms}
                   className="hover:text-[#F4F6F3] transition-colors"
                 >
-                  Rooms &amp; suites
+                  Rooms &amp; Suites
                 </a>
               </li>
               <li>
@@ -68,121 +89,114 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </li>
               <li>
-                <a href="#outdoors" className="hover:text-[#F4F6F3] transition-colors">
-                  Outdoors
+                <a href="#experiences" className="hover:text-[#F4F6F3] transition-colors">
+                  Experiences
                 </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenInfoModal('gift-vouchers')}
-                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer text-left"
-                >
-                  Gift vouchers
-                </button>
+                <a href="#offers" className="hover:text-[#F4F6F3] transition-colors">
+                  Special Offers
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Visit Column */}
+          {/* Discover Column */}
           <div className="lg:col-span-3">
             <h3 className="font-serif-editorial text-xl text-[#80B8B4] mb-4">
-              Visit
+              Discover
             </h3>
             <ul className="space-y-2.5 text-sm text-[#D7E4E1]/85">
+              <li>
+                <a href="#about" className="hover:text-[#F4F6F3] transition-colors">
+                  About EIRA
+                </a>
+              </li>
+              <li>
+                <a href="#gallery" className="hover:text-[#F4F6F3] transition-colors">
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a href="#experiences" className="hover:text-[#F4F6F3] transition-colors">
+                  Explore Goa
+                </a>
+              </li>
+              <li>
+                <a href="#stories" className="hover:text-[#F4F6F3] transition-colors">
+                  Guest Stories
+                </a>
+              </li>
               <li>
                 <button
                   type="button"
                   onClick={() => onOpenInfoModal('getting-here')}
                   className="hover:text-[#F4F6F3] transition-colors cursor-pointer text-left"
                 >
-                  Getting here
+                  Contact Us
                 </button>
-              </li>
-              <li className="text-[#D7E4E1]/80">Cliffside Road, Karwar Cove, Karnataka 581301</li>
-              <li>
-                <a
-                  href="tel:+918382284910"
-                  className="hover:text-[#F4F6F3] transition-colors tabular-nums"
-                >
-                  +91 8382 284 910
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:namaste@eira-sanctuary.in"
-                  className="hover:text-[#F4F6F3] transition-colors"
-                >
-                  namaste@eira-sanctuary.in
-                </a>
               </li>
             </ul>
           </div>
 
-          {/* Follow Column */}
-          <div className="lg:col-span-2">
+          {/* Get in Touch Column */}
+          <div className="lg:col-span-3">
             <h3 className="font-serif-editorial text-xl text-[#80B8B4] mb-4">
-              Follow
+              Get in Touch
             </h3>
             <ul className="space-y-2.5 text-sm text-[#D7E4E1]/85">
+              <li className="text-[#D7E4E1]/90">Location: Goa, India</li>
               <li>
+                <a
+                  href="tel:+918322849100"
+                  className="hover:text-[#F4F6F3] transition-colors tabular-nums"
+                >
+                  Phone: +91 832 284 9100
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:reservations@eiragoa.com"
+                  className="hover:text-[#F4F6F3] transition-colors"
+                >
+                  Email: reservations@eiragoa.com
+                </a>
+              </li>
+              <li className="pt-2 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.14em] text-[#80B8B4]">
                 <button
                   type="button"
                   onClick={() => onOpenInfoModal('instagram')}
-                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer text-left"
+                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer"
                 >
                   Instagram
                 </button>
-              </li>
-              <li>
                 <button
                   type="button"
-                  onClick={() => onOpenInfoModal('journal')}
-                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer text-left"
+                  onClick={() => onOpenInfoModal('facebook')}
+                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer"
                 >
-                  Journal
+                  Facebook
                 </button>
-              </li>
-              <li>
                 <button
                   type="button"
-                  onClick={() => onOpenInfoModal('careers')}
-                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer text-left"
+                  onClick={() => onOpenInfoModal('youtube')}
+                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer"
                 >
-                  Careers
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenInfoModal('brand-kit')}
-                  className="hover:text-[#F4F6F3] transition-colors cursor-pointer text-left"
-                >
-                  Brand &amp; Press Kit
+                  YouTube
                 </button>
               </li>
             </ul>
           </div>
-
-          {/* Brand Summary Column */}
-          <div className="lg:col-span-4">
-            <div className="mb-4">
-              <EiraLogoMark color="#F4F6F3" showCrest={true} />
-            </div>
-            <p className="text-sm text-[#D7E4E1]/80 leading-relaxed max-w-[36ch]">
-              Eighteen ocean-facing villas, an Ayurvedic seawater sanctuary, and wood-fired Konkan dining along a private cove on the Arabian Sea.
-            </p>
-          </div>
         </div>
 
-        {/* Middle Row: Newsletter ("Postcards from the Konkan Coast") & Direct Contact */}
+        {/* Middle Row: Footer Newsletter ("Beautiful moments begin here...") */}
         <div className="py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <h3 className="font-serif-editorial text-2xl sm:text-3xl font-normal text-[#F4F6F3] mb-1.5">
-              Postcards from the Konkan Coast
+              Newsletter
             </h3>
-            <p className="text-xs sm:text-sm text-[#D7E4E1]/75 mb-5 max-w-[48ch]">
-              Monsoon journals, seasonal harvest menus, and private retreat invitations, sent four times a year.
+            <p className="text-xs sm:text-sm text-[#D7E4E1]/75 mb-5 max-w-[52ch]">
+              Beautiful moments begin here. Stay connected for updates, inspiration, and exclusive experiences.
             </p>
 
             <form
@@ -193,7 +207,7 @@ export const Footer: React.FC<FooterProps> = ({
             >
               <div className="relative flex items-center">
                 <label htmlFor="newsletter-email" className="sr-only">
-                  Email address
+                  Enter your email address
                 </label>
                 <input
                   id="newsletter-email"
@@ -203,7 +217,7 @@ export const Footer: React.FC<FooterProps> = ({
                     setEmail(e.target.value);
                     if (errorMessage) setErrorMessage(null);
                   }}
-                  placeholder="Your email address"
+                  placeholder="Enter your email address"
                   className="w-full pl-5 pr-32 py-3.5 rounded-full bg-[#F4F6F3]/10 border border-[#D7E4E1]/25 text-sm text-[#F4F6F3] placeholder:text-[#D7E4E1]/50 focus:outline-none focus:border-[#80B8B4]"
                 />
                 <button
@@ -232,7 +246,7 @@ export const Footer: React.FC<FooterProps> = ({
                 >
                   <Check className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                   <span>
-                    Dhanyavaad. Seasonal coastal notes will be sent to {subscribedEmail}.
+                    Thank you for subscribing. Updates and exclusive experiences will be sent to {subscribedEmail}.
                   </span>
                 </p>
               )}
@@ -241,13 +255,13 @@ export const Footer: React.FC<FooterProps> = ({
 
           <div className="lg:col-span-5 lg:text-right">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#80B8B4] mb-1">
-              Get in touch
+              Get in Touch
             </p>
             <a
-              href="mailto:namaste@eira-sanctuary.in"
+              href="mailto:reservations@eiragoa.com"
               className="font-serif-editorial text-2xl sm:text-3xl text-[#F4F6F3] hover:text-[#80B8B4] transition-colors"
             >
-              namaste@eira-sanctuary.in
+              reservations@eiragoa.com
             </a>
           </div>
         </div>
@@ -275,28 +289,28 @@ export const Footer: React.FC<FooterProps> = ({
 
         {/* Footer Bottom Legal Row */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#D7E4E1]/65">
-          <p>© 2026 EIRA Stays. All rights reserved.</p>
+          <p>© 2026 EIRA Resort. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <button
               type="button"
               onClick={() => onOpenInfoModal('privacy')}
               className="hover:text-[#F4F6F3] transition-colors cursor-pointer"
             >
-              Privacy
-            </button>
-            <button
-              type="button"
-              onClick={() => onOpenInfoModal('accessibility')}
-              className="hover:text-[#F4F6F3] transition-colors cursor-pointer"
-            >
-              Accessibility
+              Privacy Policy
             </button>
             <button
               type="button"
               onClick={() => onOpenInfoModal('terms')}
               className="hover:text-[#F4F6F3] transition-colors cursor-pointer"
             >
-              Terms
+              Terms &amp; Conditions
+            </button>
+            <button
+              type="button"
+              onClick={() => onOpenInfoModal('cancellation')}
+              className="hover:text-[#F4F6F3] transition-colors cursor-pointer"
+            >
+              Cancellation Policy
             </button>
           </div>
         </div>

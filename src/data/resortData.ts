@@ -1,6 +1,8 @@
 export interface RoomItem {
   id: string;
   name: string;
+  roomNumberLabel: string;
+  tagline: string;
   category: string;
   shortDescription: string;
   fullDescription: string;
@@ -37,6 +39,7 @@ export interface ExperienceItem {
 export interface SeasonalOffer {
   id: string;
   title: string;
+  subtitle: string;
   category: 'MIDWEEK' | 'MONSOON & COOL' | 'AYURVEDA';
   description: string;
   extendedDetails: string;
@@ -45,6 +48,14 @@ export interface SeasonalOffer {
   discountPercent: number;
   recommendedRoomId: string;
   validityNote: string;
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  category: 'Our Spaces' | 'Beautiful Stays' | 'Dining Moments' | 'Coastal Experiences' | 'Life at EIRA';
+  caption: string;
+  image: string;
 }
 
 export const HERO_IMAGE = './src/assets/images/eira_hero_resort_1794900653766.jpg';
@@ -56,114 +67,94 @@ export const BRAND_LOGO_PDF = './assets/aistudio/EIRA_logo_83e64182.pdf';
 export const ROOMS_DATA: RoomItem[] = [
   {
     id: 'harbour-room',
-    name: 'Lagoon Verandah Room',
-    category: 'Coastal Courtyard Room',
-    shortDescription:
-      'Sun-dappled lime-plaster interiors, a hand-carved Malabar teak king bed, and a louvered verandah opening toward the palm-lined estuary.',
+    name: 'The Haven',
+    roomNumberLabel: 'Room 01',
+    tagline: 'Your peaceful hideaway.',
+    category: 'Garden Sanctuary',
+    shortDescription: 'Your peaceful hideaway.',
     fullDescription:
-      'Positioned along the quiet eastern curve of Karwar Cove to catch the first golden light over the backwaters and sea, the Lagoon Verandah Room pairs cool honed stone floors with organic unbleached mulmul cotton drapery and a private timber sit-out above the coconut palms.',
+      'A warm and inviting retreat with soothing natural interiors and a private timber verandah.',
     sizeSqm: 46,
     maxGuests: 2,
-    bedType: 'Teak Poster King Bed',
-    view: 'East Estuary & Palm Grove',
+    bedType: 'King Bed',
+    view: 'Palm Grove',
     nightlyRate: 38000,
     image: './src/assets/images/room_harbour_room_1794900654179.jpg',
-    highlights: [
-      'Hand-carved Malabar teak bed',
-      'Private louvered sea verandah',
-      'Organic khadi & mulmul linens',
-      'Open-sky rain shower courtyard',
-    ],
+    highlights: ['Private verandah', 'Rain shower courtyard', 'Soothing interiors'],
     amenities: [
-      'Private timber verandah facing the lagoon',
-      'Handloom organic khadi & mulmul bedding',
-      'Deep monolithic stone soaking tub',
-      'Cold-pressed vetiver & wild neem bath rituals',
-      'Chikmagalur estate coffee & brass tea pantry',
+      'Private timber verandah',
+      'Organic handloom bedding',
+      'Stone soaking tub',
+      'Artisanal coffee & tea pantry',
     ],
   },
   {
     id: 'tide-room',
-    name: 'Tidewater Pavilion',
-    category: 'Oceanfront Villa',
-    shortDescription:
-      'Contemporary coastal pavilion with floor-to-ceiling teak sliders, woven cane accents, and uninterrupted views of the rolling Arabian Sea.',
+    name: 'The Breeze',
+    roomNumberLabel: 'Room 02',
+    tagline: 'Wake up to wonderful moments.',
+    category: 'Seafront Room',
+    shortDescription: 'Wake up to wonderful moments.',
     fullDescription:
-      'Built just above the high-tide line, the Tidewater Pavilion frames the open Arabian Sea through expansive folding glass and teak screens. Hand-woven seagrass rugs, warm brass lanterns, and a shaded daybed deck invite slow afternoons listening to the surf.',
+      'Light, airy, and comfortable — designed for slow mornings and ocean breeze views.',
     sizeSqm: 54,
     maxGuests: 2,
     bedType: 'Canopy King Bed',
-    view: 'Direct Arabian Sea Shoreline',
+    view: 'Arabian Sea',
     nightlyRate: 46000,
     image: './src/assets/images/room_tide_room_1794900655154.jpg',
-    highlights: [
-      'Direct beach footpath access',
-      'Floor-to-ceiling teak sliders',
-      'Shaded coastal daybed deck',
-      'Uninterrupted Arabian Sea views',
-    ],
+    highlights: ['Oceanfront deck', 'Coastal sliders', 'Sea breeze views'],
     amenities: [
-      'Floor-to-ceiling coastal glazing & louvers',
-      'Hand-woven cane & dhurrie textiles',
-      'Walk-in monsoon shower with ocean view',
-      'Artisanal Studio pottery reading lamps',
-      'Private sandy path to the cove beach',
+      'Floor-to-ceiling coastal sliders',
+      'Shaded sea daybed deck',
+      'Walk-in ocean-view shower',
+      'Direct beach footpath',
     ],
   },
   {
     id: 'dune-suite',
-    name: 'Konkan Dune Suite',
-    category: 'Signature Pool Suite',
-    shortDescription:
-      'Expansive living pavilion with a traditional teak jhoola swing daybed, private plunge pool, and sheer linen curtains billowing in the sea breeze.',
+    name: 'The Retreat',
+    roomNumberLabel: 'Room 03',
+    tagline: 'Space to relax. Time to reconnect.',
+    category: 'Pool Suite',
+    shortDescription: 'Space to relax. Time to reconnect.',
     fullDescription:
-      'Overlooking the wild casuarina dunes and the western horizon, the Konkan Dune Suite offers a generous indoor-outdoor living salon, a private temperature-controlled plunge pool, a dining verandah for four, and a serene brass-and-laterite bathing courtyard.',
+      'Spacious comfort and refined design with a private plunge pool and teak swing daybed.',
     sizeSqm: 82,
     maxGuests: 4,
-    bedType: 'King Bed + Jhoola Daybed',
-    view: 'Casuarina Dunes & Sunset Bay',
+    bedType: 'King Bed + Daybed',
+    view: 'Sunset Bay',
     nightlyRate: 68000,
     image: './src/assets/images/room_dune_suite_1794900656688.jpg',
-    highlights: [
-      'Private heated plunge pool',
-      'Traditional teak jhoola swing',
-      'Indoor-outdoor living salon',
-      'Sunset kokum & spice aperitifs',
-    ],
+    highlights: ['Private plunge pool', 'Teak jhoola swing', 'Living salon'],
     amenities: [
-      'Separate living salon & private plunge pool',
-      'Wrap-around Malabar teak sun deck',
-      'Sheer handloom linen floor-to-ceiling drapery',
-      'Freestanding stone bath & twin brass vanities',
-      'Complimentary evening coastal sundowner service',
+      'Private heated plunge pool',
+      'Indoor-outdoor living salon',
+      'Wrap-around teak sun deck',
+      'Evening sundowner service',
     ],
   },
   {
     id: 'the-lookout',
-    name: 'The Cliffside Haveli',
-    category: 'Presidential Sea Sanctuary',
-    shortDescription:
-      'Perched atop the laterite headland with dramatic 180-degree ocean vistas, a private infinity terrace, and dedicated butler service.',
+    name: 'The Horizon',
+    roomNumberLabel: 'Room 04',
+    tagline: 'A stay beyond the ordinary.',
+    category: 'Ocean Residence',
+    shortDescription: 'A stay beyond the ordinary.',
     fullDescription:
-      'Crowning the highest ridge of EIRA, The Cliffside Haveli commands an unbroken 180-degree panorama of the Arabian Sea and golden western sunsets. Features a private infinity-edge lap pool, sunken firepit lounge, hammered-copper outdoor soaking tub, and personal coastal butler.',
+      'Elevated coastal living with 180-degree sea views, private infinity pool, and dedicated host.',
     sizeSqm: 118,
     maxGuests: 4,
-    bedType: 'Maharaja Canopy King Bed',
-    view: '180° Headland & Arabian Sea',
+    bedType: 'Canopy King Bed',
+    view: '180° Ocean Horizon',
     nightlyRate: 95000,
     image: './src/assets/images/room_the_lookout_1794900658040.jpg',
-    highlights: [
-      '180° Arabian Sea cliff panorama',
-      'Private infinity-edge plunge pool',
-      'Outdoor hammered-copper bath',
-      'Dedicated butler & in-villa dining',
-    ],
+    highlights: ['180° sea panorama', 'Private infinity pool', 'Dedicated host'],
     amenities: [
-      'Private cliffside infinity pool & firepit deck',
-      'Outdoor hammered-copper soaking sanctuary',
-      'Dedicated Thamburan host & private chef dining',
-      'Bespoke Ayurvedic pillow & incense menu',
-      'Private dawn access to the Samudra thermal spa',
+      'Cliffside infinity pool',
+      'Outdoor copper soaking bath',
+      'Dedicated host & in-villa dining',
+      'Private wellness sanctuary access',
     ],
   },
 ];
@@ -171,68 +162,64 @@ export const ROOMS_DATA: RoomItem[] = [
 export const DINING_SCHEDULE: DiningScheduleItem[] = [
   {
     id: 'breakfast',
-    service: 'Morning Harvest',
+    service: 'Fresh Beginnings',
     hours: '07:30–10:30',
-    note: 'Warm lacy appams, coconut milk stew, single-estate Chikmagalur pour-over coffee, and ripe Alphonso & jackfruit.',
+    note: 'Comforting morning flavours by the sea.',
     timeSlots: ['07:30', '08:00', '08:30', '09:00', '09:30', '10:00'],
   },
   {
     id: 'lunch',
-    service: 'Verandah Grill & Toddy',
-    hours: '12:30–15:30',
-    note: 'Banana-leaf wrapped pearl spot, heirloom raw mango salads, and chilled kokum & curry-leaf spritzers by the surf.',
+    service: 'Flavours to Remember',
+    hours: '12:30–16:00',
+    note: 'Fresh coastal ingredients and local craft.',
     timeSlots: ['12:30', '13:00', '13:30', '14:00', '14:30', '15:00'],
   },
   {
     id: 'dinner',
-    service: 'Candlelit Coastal Tasting',
+    service: 'Evenings to Savour',
     hours: '19:00–23:00',
-    note: 'Seven-course Konkan & Malabar tasting menu cooked over coconut-shell embers from the day-boats’ catch.',
+    note: 'Candlelit dinners and unhurried conversations.',
     timeSlots: ['19:00', '19:30', '20:00', '20:30', '21:00', '21:45'],
   },
 ];
 
 export const SAMPLE_MENU_SECTIONS = [
   {
-    course: 'From the Hearth & Estuary (Small Plates)',
+    course: 'Fresh Beginnings & Small Plates',
     items: [
       {
-        title: 'Karwar Rock Oysters & Smoked Kokum Granita — ₹1,850',
-        description: 'Hand-dived estuary oysters, green mango mignonette, crushed Tellicherry pepper',
+        title: 'Goan Rock Oysters & Kokum Granita — ₹1,850',
+        description: 'Estuary oysters, green mango, Tellicherry pepper',
       },
       {
-        title: 'Wood-Fired Poi Bread & Cultured Ghee Butter — ₹950',
-        description: 'Fermented toddy dough baked in clay ovens, roasted garlic & curry-leaf podi',
+        title: 'Warm Poi Bread & Cultured Herb Butter — ₹950',
+        description: 'Clay-oven baked with roasted garlic & coastal spice',
       },
     ],
   },
   {
-    course: 'From the Fishing Canoes & Spice Garden',
+    course: 'Flavours to Remember',
     items: [
       {
-        title: 'Chargrilled Pearl Spot (Karimeen Pollichathu) — ₹3,400',
-        description: 'Wrapped in scorched plantain leaf with shallots, wild kokum, and cold-pressed coconut oil',
+        title: 'Chargrilled Pearl Spot in Plantain Leaf — ₹3,400',
+        description: 'Wild kokum, coastal herbs, cold-pressed coconut oil',
       },
       {
-        title: 'Malabar Crab & Roasted Coconut Gassi — ₹4,200',
-        description: 'Fresh mud crab simmered in stone-ground coriander, Byadgi chilli, served with red matta rice',
-      },
-      {
-        title: 'Jackfruit & Black Chickpea Tellicherry Roast — ₹2,600',
-        description: 'Estate-grown tender jackfruit, freshly harvested green peppercorns, flaky Malabar parotta',
+        title: 'Goan Mud Crab & Roasted Coconut Curry — ₹4,200',
+        description: 'Stone-ground spices with heirloom red rice',
       },
     ],
   },
   {
-    course: 'Sweet & Estate Infusions',
+    course: 'Evenings to Savour',
     items: [
       {
-        title: 'Warm Palm Jaggery & Tender Coconut Payasam — ₹1,450',
-        description: 'Slow-reduced heirloom rice, roasted cashews, smoked cardamom ice cream',
+        title: 'Palm Jaggery & Tender Coconut Tart — ₹1,450',
+        description: 'Roasted Goa cashews & cardamom gelato',
       },
       {
-        title: 'Spiced Dark Chocolate & Chikmagalur Espresso Tart — ₹1,600',
-        description: '70% single-origin South Indian cacao, sea-salt caramel, candied ginger',
+        title: 'Single-Origin Dark Chocolate Ganache — ₹1,600',
+        description: '70% artisanal cacao & sea-salt caramel',
       },
     ],
   },
@@ -241,50 +228,46 @@ export const SAMPLE_MENU_SECTIONS = [
 export const EXPERIENCES_DATA: ExperienceItem[] = [
   {
     id: 'the-sea-water',
-    title: 'Samudra Thalasso Pool',
-    subtitle: 'Heated Saltwater Sanctuary & Ayurvedic Steam Pavilion',
-    schedule: 'Daily · 06:30–21:00',
-    duration: 'Complimentary unhurried access for resident guests',
-    description:
-      'Carved into the natural laterite cliffside above the Arabian Sea surf, our warm thalassotherapy infinity pool draws filtered ocean water gently heated to 30°C, paired with herbal medicated steam rooms and Kansa wand recovery lounges.',
-    details: [
-      'Filtered mineral-rich Arabian Sea water warmed to 30°C',
-      'Cedar & vetiver herbal steam pavilion and rainwater plunge',
-      'Fresh tulsi, ginger & lemongrass infusions served poolside',
-    ],
+    title: "The Water's Edge",
+    subtitle: 'Let the waves set your pace.',
+    schedule: '01 · Daily by the Shore',
+    duration: 'All-day resident access',
+    description: 'Spend unhurried hours by the ocean breeze and saltwater infinity pool.',
+    details: ['Saltwater infinity pool', 'Shaded timber sea decks'],
     image: './src/assets/images/exp_sea_water_pool_1794900660601.jpg',
     featured: true,
   },
   {
     id: 'guided-sea-swims',
-    title: 'Dawn Cove Swim & Kayaking',
-    subtitle: 'Sunrise Arabian Sea Lagoon Crossings',
-    schedule: 'Daily at Sunrise · Tide Dependent',
-    duration: '75 minutes · Intimate groups of up to 6 guests',
-    description:
-      'Join our resident coastal watermen at the cove jetty as the first golden light touches the palms. Swim or paddle across the calm, sheltered waters of Karwar Lagoon before returning to warm handloom towels and steaming filter coffee.',
-    details: [
-      'Guided by certified coastal lifeguards & sea naturalists',
-      'Hand-crafted wooden kayaks, tow floats, and dry bags provided',
-      'Followed by warm sukku (dry ginger) palm-jaggery elixir on the deck',
-    ],
-    image: './src/assets/images/exp_guided_sea_swims_1794900662412.jpg',
+    title: 'Golden Hour Moments',
+    subtitle: 'Every sunset tells a story.',
+    schedule: '02 · Daily at Dusk',
+    duration: '17:30–19:30 · Sunset Deck',
+    description: 'Watch the sky turn golden from our hanging swing daybeds by the sea.',
+    details: ['Sunset swing deck', 'Coastal acoustic evenings'],
+    image: './src/assets/images/eira_swing_deck_twilight_hero_1794909208579.jpg',
     featured: false,
   },
   {
     id: 'coast-path-walks',
-    title: 'Laterite Cliff & Spice Trail',
-    subtitle: 'Headland Groves, Sacred Covelines & Botanical Walks',
-    schedule: 'Botanist-Led or Self-Guided · 07:00 & 16:30',
-    duration: '2 to 3 hours · Departing from the estate spice gate',
-    description:
-      'Step through our walled pepper garden onto fourteen kilometres of unspoilt Konkan headland trail. Walk beneath ancient banyan and casuarina trees, discover hidden tide pools, and pause at cliffside viewpoints with a woven tiffin carrier from the kitchen.',
-    details: [
-      'Hand-illustrated coastal flora & tide maps in every villa',
-      'Packed brass tiffin picnic with spiced buttermilk & snacks (₹3,500 for two)',
-      'Guided spice-harvesting & birdwatching walks with our estate naturalist',
-    ],
+    title: 'Discover the Spirit of Goa',
+    subtitle: 'A little culture. A lot of character.',
+    schedule: '03 · Morning & Afternoon',
+    duration: 'Guided or self-paced',
+    description: "Explore Goa's heritage streets, spice gardens, cafés, and coastal trails.",
+    details: ['Heritage quarter walks', 'Private coastal drives'],
     image: './src/assets/images/exp_coast_path_walks_1794900662389.jpg',
+    featured: false,
+  },
+  {
+    id: 'art-of-doing-nothing',
+    title: 'The Art of Doing Nothing',
+    subtitle: 'Sometimes, doing less means feeling more.',
+    schedule: '04 · At Your Own Pace',
+    duration: 'No rush, no routine',
+    description: 'Leave the everyday behind and rediscover the joy of simply being present.',
+    details: ['Quiet reading verandahs', 'Botanical spa rituals'],
+    image: './src/assets/images/exp_guided_sea_swims_1794900662412.jpg',
     featured: false,
   },
 ];
@@ -292,59 +275,101 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
 export const SEASONAL_OFFERS: SeasonalOffer[] = [
   {
     id: 'the-slow-week',
-    title: 'The Unhurried Konkan Week',
+    title: 'The Weekend Escape',
+    subtitle: 'Two days away. Endless memories.',
     category: 'MIDWEEK',
-    description:
-      'Stay three nights between Sunday and Thursday and let coastal life unfold at your own pace.',
+    description: 'A refreshing getaway surrounded by comfort and calm.',
     extendedDetails:
-      'Crafted for travellers seeking the quietest days along the Arabian Sea. Arrive on Sunday afternoon to a chilled tender-coconut welcome, enjoy daily breakfast on your private verandah, and receive a 15% privilege on stays of three nights or more.',
+      'Includes daily breakfast, sunset refreshments on the swing deck, and a 15% stay privilege.',
     inclusions: [
-      'Three nights accommodation (Sunday through Thursday)',
-      'Daily Morning Harvest breakfast for two at The Verandah',
-      'Complimentary morning access to the Samudra Thalasso circuit',
-      '15% midweek tariff privilege applied automatically in ₹ INR',
+      'Daily breakfast for two',
+      'Sunset refreshments on the deck',
+      '15% stay privilege',
     ],
     minNights: 3,
     discountPercent: 15,
     recommendedRoomId: 'harbour-room',
-    validityNote: 'Valid Sunday – Thursday across all villas & suites',
+    validityNote: '3+ Nights · 15% Privilege',
   },
   {
     id: 'cold-water-weekend',
-    title: 'Arabian Sea Coastal Escape',
+    title: 'Just the Two of Us',
+    subtitle: 'More togetherness. More memories.',
     category: 'MONSOON & COOL',
-    description:
-      'Two guided sunrise lagoon swims, herbal steam sessions, and a long Sunday coastal feast.',
+    description: 'Peaceful mornings and romantic evenings shared together.',
     extendedDetails:
-      'Celebrate the crisp sea breezes of the Konkan coast. Spend two or more nights with guided dawn cove swims, restorative sessions in the herbal steam pavilion, and a leisurely five-course Sunday banana-leaf coastal feast.',
+      'Includes a private candlelit dinner for two, in-villa breakfast, and late checkout.',
     inclusions: [
-      'Two guided sunrise lagoon swims or sea kayaking excursions',
-      'Reserved herbal steam pavilion & Kansa foot ritual',
-      'Long Sunday Konkan seafood & spice-garden lunch for two',
-      '10% seasonal weekend tariff privilege in ₹ INR',
+      'Candlelit coastal dinner for two',
+      'Private verandah breakfast',
+      '10% couple privilege',
     ],
     minNights: 2,
     discountPercent: 10,
     recommendedRoomId: 'tide-room',
-    validityNote: 'Available Friday – Monday throughout the season',
+    validityNote: '2+ Nights · 10% Privilege',
   },
   {
     id: 'salt-and-stillness',
-    title: 'Prana & Saltwater Immersion',
+    title: 'The Extended Escape',
+    subtitle: 'Stay longer. Feel better.',
     category: 'AYURVEDA',
-    description:
-      'A 90-minute Ayurvedic Abhyanga & Kansa ritual for two, candlelit tasting dinner, and late checkout.',
+    description: 'Slow down, settle in, and make the most of every day.',
     extendedDetails:
-      'A deeply restorative immersion into EIRA’s Ayurvedic sea spa and coastal kitchen. Includes our signature 90-minute warm herb-infused oil therapy for two, a seven-course candlelit dinner from the evening catch, and guaranteed 2:00 PM late departure.',
+      'Includes airport transfers, a coastal tasting dinner, and guaranteed late departure.',
     inclusions: [
-      '90-minute Ayurvedic Abhyanga & Kansa therapy for two (worth ₹18,000)',
-      'Candlelit coastal tasting dinner for two at The Verandah',
-      'Guaranteed late checkout until 14:00 & private Dabolim/Mopa airport transfer',
-      '12% wellness sanctuary privilege applied to your stay',
+      'Complimentary Goa airport transfer',
+      'Tasting dinner for two',
+      '12% extended stay privilege',
     ],
     minNights: 2,
     discountPercent: 12,
     recommendedRoomId: 'dune-suite',
-    validityNote: 'Available year-round for two-night minimum stays',
+    validityNote: '2+ Nights · 12% Privilege',
+  },
+];
+
+export const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    id: 'gal-spaces-1',
+    title: 'Coastal Sanctuary',
+    category: 'Our Spaces',
+    caption: 'Goa, India',
+    image: HERO_IMAGE,
+  },
+  {
+    id: 'gal-stays-1',
+    title: 'The Haven',
+    category: 'Beautiful Stays',
+    caption: 'Room 01',
+    image: './src/assets/images/room_harbour_room_1794900654179.jpg',
+  },
+  {
+    id: 'gal-stays-2',
+    title: 'The Horizon',
+    category: 'Beautiful Stays',
+    caption: 'Room 04',
+    image: './src/assets/images/room_the_lookout_1794900658040.jpg',
+  },
+  {
+    id: 'gal-dining-1',
+    title: 'The Verandah',
+    category: 'Dining Moments',
+    caption: 'Coastal Kitchen',
+    image: DINING_IMAGE,
+  },
+  {
+    id: 'gal-coastal-1',
+    title: "The Water's Edge",
+    category: 'Coastal Experiences',
+    caption: 'Saltwater Pool',
+    image: './src/assets/images/exp_sea_water_pool_1794900660601.jpg',
+  },
+  {
+    id: 'gal-life-1',
+    title: 'Twilight Swing Deck',
+    category: 'Life at EIRA',
+    caption: 'Golden Hour',
+    image: SWING_DECK_HERO_IMAGE,
   },
 ];

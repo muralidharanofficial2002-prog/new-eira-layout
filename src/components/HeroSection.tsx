@@ -35,8 +35,6 @@ interface HeroSlideConfig {
   kicker: string;
   titleBold: string;
   titleLight: string;
-  subtitlePrefix: string;
-  subtitleBold: string;
   image: string;
   imageAlt: string;
   nightlyRate: number;
@@ -48,63 +46,51 @@ const HERO_TABS: HeroSlideConfig[] = [
   {
     id: 'overview',
     tabLabel: 'Overview',
-    kicker: 'Top sanctuary',
+    kicker: 'Where Every Stay Becomes a Memory',
     titleBold: 'Eira',
     titleLight: 'luxury',
-    subtitlePrefix: 'Premium luxury sanctuary in',
-    subtitleBold: 'Karwar Cove',
     image: SWING_DECK_HERO_IMAGE,
     imageAlt:
       'EIRA beachfront timber deck at twilight with twin hanging swing daybeds overlooking the Arabian Sea',
     nightlyRate: 38000,
-    tooltipTitle: 'Konkan Jhoola Swing Verandah',
-    tooltipDetail:
-      'Hand-carved Malabar teak hanging daybeds above the Arabian Sea · Inclusive of Morning Harvest & Thalasso Spa',
+    tooltipTitle: 'The Haven & Swing Verandah',
+    tooltipDetail: 'Twilight Sea Deck · Daily Breakfast Included',
   },
   {
     id: 'rooms',
-    tabLabel: 'Rooms',
-    kicker: '18 Sea Villas',
-    titleBold: 'Haveli',
-    titleLight: 'suites',
-    subtitlePrefix: 'Private plunge pool residences in',
-    subtitleBold: 'Konkan Coast',
+    tabLabel: 'Our Stays',
+    kicker: 'Your Own Little World of Comfort',
+    titleBold: 'Haven',
+    titleLight: 'retreats',
     image: ROOMS_DATA[3].image,
-    imageAlt: 'The Cliffside Haveli panoramic oceanfront terrace at EIRA',
+    imageAlt: 'The Horizon panoramic oceanfront terrace at EIRA',
     nightlyRate: 68000,
-    tooltipTitle: 'Konkan Dune Suite & Cliffside Haveli',
-    tooltipDetail:
-      '82–118 m² oceanfront residences with private infinity pools & Thamburan butler',
+    tooltipTitle: 'The Retreat & The Horizon',
+    tooltipDetail: 'Private Plunge Pools & Ocean Views',
   },
   {
     id: 'information',
-    tabLabel: 'Information',
-    kicker: 'Sea Wellness',
-    titleBold: 'Samudra',
-    titleLight: 'thalasso',
-    subtitlePrefix: 'Heated 30°C saltwater spa in',
-    subtitleBold: 'Arabian Sea',
+    tabLabel: 'Experiences',
+    kicker: 'Less Planning · More Living',
+    titleBold: 'Ocean',
+    titleLight: 'moments',
     image: EXPERIENCES_DATA[0].image,
-    imageAlt: 'Samudra Thalasso cliffside saltwater pool overlooking the ocean',
+    imageAlt: "The Water's Edge cliffside saltwater pool overlooking the ocean",
     nightlyRate: 46000,
-    tooltipTitle: 'Samudra Thalasso & Ayurvedic Sanctuary',
-    tooltipDetail:
-      'Complimentary resident access · 06:30–21:00 daily with herbal steam & Kansa rituals',
+    tooltipTitle: "The Water's Edge",
+    tooltipDetail: 'Saltwater Infinity Pool · Sunrise to Dusk',
   },
   {
     id: 'location',
-    tabLabel: 'Location',
-    kicker: '14.8185° N',
-    titleBold: 'Karwar',
-    titleLight: 'headland',
-    subtitlePrefix: 'Fourteen kilometres of private',
-    subtitleBold: 'Malabar Shore',
+    tabLabel: 'Goa',
+    kicker: 'Goa, India',
+    titleBold: 'Coastal',
+    titleLight: 'escape',
     image: HERO_IMAGE,
-    imageAlt: 'EIRA curved stone coastal architecture along Karwar Cove at sunset',
+    imageAlt: 'EIRA curved stone coastal architecture in Goa at sunset',
     nightlyRate: 38000,
-    tooltipTitle: 'Cliffside Road · Karwar Cove',
-    tooltipDetail:
-      '75 mins south of Goa Dabolim/Mopa Airport via private coastal chauffeur',
+    tooltipTitle: 'EIRA · Goa, India',
+    tooltipDetail: 'Direct Arabian Sea Shoreline Sanctuary',
   },
 ];
 
@@ -188,7 +174,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       onMouseLeave={handleMouseLeave}
       className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-[#1D2F2D] text-[#F4F6F3] select-none"
     >
-      {/* 1. Full-Bleed Swing-Deck Background with Uploaded Green Gradient Atmosphere */}
+      {/* 1. Full-Bleed Swing-Deck Background with Green Gradient Atmosphere */}
       <div
         className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
         style={{
@@ -204,7 +190,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           imgClassName="animate-hero-zoom object-center transition-all duration-700"
         />
 
-        {/* Color-Harmonizing Layer: Reduced in the Center so Sunset & Sea Remain Clear, Green Gradient on Outer Frame */}
+        {/* Color-Harmonizing Layer: Reduced in the Center so Sunset & Sea Remain Clear */}
         <div
           aria-hidden="true"
           className="absolute inset-0 mix-blend-color"
@@ -214,7 +200,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           }}
         />
 
-        {/* Uploaded Green (#80B8B4) Vignette with Clear Center Window */}
+        {/* Green (#80B8B4) Vignette with Clear Center Window */}
         <div
           aria-hidden="true"
           className="absolute inset-0"
@@ -233,16 +219,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         />
       </div>
 
-      {/* 2. Left-Edge Horizontal Hairline Extending to the Kicker Axis (Exact Reference Detail) */}
+      {/* 2. Left-Edge Horizontal Hairline */}
       <div
         aria-hidden="true"
         className="hidden lg:block pointer-events-none absolute left-0 top-[25.5%] w-[16.5%] h-px bg-white/35 z-10"
       />
 
-      {/* 3. Far-Left Vertical Mouse Scroll Icon Positioned in the Left Margin */}
+      {/* 3. Far-Left Vertical Mouse Scroll Icon */}
       <a
-        href="#stay"
-        aria-label="Scroll down to explore villas"
+        href="#about"
+        aria-label="Scroll down to explore EIRA"
         className="hidden lg:flex flex-col items-center gap-2 text-white/80 hover:text-[#80B8B4] transition-colors absolute left-[7.5%] top-[48%] -translate-y-1/2 z-20"
       >
         <span className="w-[22px] h-[34px] rounded-full border border-white/75 flex items-start justify-center p-1.5 shadow-sm">
@@ -253,21 +239,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* 4. Main Hero Foreground Content Container */}
       <div className="relative z-10 flex-1 max-w-[1440px] w-full mx-auto px-6 sm:px-10 lg:px-16 pt-28 sm:pt-32 pb-8 flex flex-col justify-between">
-        {/* Center Stage Aligned to the Reference's Left Editorial Axis (lg:pl-[13%]) */}
+        {/* Center Stage Aligned to the Left Editorial Axis */}
         <div
           className="my-auto pt-4 lg:pl-[13%] transition-transform duration-300 ease-out"
           style={{
             transform: `translate3d(${parallaxOffset.x * 0.35}px, ${parallaxOffset.y * 0.35}px, 0)`,
           }}
         >
-          {/* Kicker ("Top sanctuary") Aligned Directly Above the Giant Title */}
-          <div className="mb-2 sm:mb-3">
-            <span className="text-xs sm:text-sm font-semibold tracking-wide text-white normal-case drop-shadow-sm">
+          {/* Kicker */}
+          <div className="mb-3 sm:mb-4">
+            <span className="text-xs sm:text-sm font-medium tracking-wide text-white/95 drop-shadow-sm">
               {currentSlide.kicker}
             </span>
           </div>
 
-          {/* Giant Two-Line Contrast Typography ("Eira / luxury") + Right "Book now ───›" */}
+          {/* Giant Two-Line Contrast Typography ("Eira / luxury") + Right Action Link */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
             <div>
               <h1 className="leading-[0.86] tracking-[-0.025em]">
@@ -275,7 +261,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   className="block font-extrabold text-white drop-shadow-[0_12px_32px_rgba(16,28,27,0.55)] normal-case"
                   style={{
                     fontFamily: "'Proxima Nova', 'Montserrat', sans-serif",
-                    fontSize: 'clamp(5rem, 11.5vw, 9.8rem)',
+                    fontSize: 'clamp(4.75rem, 11.5vw, 9.75rem)',
                   }}
                 >
                   {currentSlide.titleBold}
@@ -285,43 +271,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   style={{
                     fontFamily: "'Proxima Nova', 'Montserrat', sans-serif",
                     fontWeight: 100,
-                    fontSize: 'clamp(3.8rem, 8.6vw, 7.3rem)',
+                    fontSize: 'clamp(3.6rem, 8.4vw, 7.25rem)',
                   }}
                 >
                   {currentSlide.titleLight}
                 </span>
               </h1>
 
-              {/* Minimal 1-Line Subtitle + 5 White Stars */}
-              <div className="mt-4 sm:mt-5 space-y-2">
-                <p className="text-sm sm:text-[15px] text-white/90 font-light tracking-wide drop-shadow-sm">
-                  {currentSlide.subtitlePrefix}{' '}
-                  <strong className="font-semibold text-white">
-                    {currentSlide.subtitleBold}
-                  </strong>
-                </p>
-                <div
-                  aria-label="Rated 5 out of 5 stars"
-                  className="flex items-center gap-1.5 text-white"
-                >
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-3 h-3 fill-white text-white drop-shadow-sm"
-                    />
-                  ))}
-                </div>
+              {/* Five Crisp White Stars Below Title */}
+              <div
+                aria-label="Rated 5 out of 5 stars"
+                className="mt-6 sm:mt-7 inline-flex items-center gap-2 text-white"
+              >
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-3.5 h-3.5 fill-white text-white drop-shadow-sm"
+                  />
+                ))}
               </div>
             </div>
 
-            {/* Right-Aligned Minimal "Book now ───›" Link */}
+            {/* Right-Aligned Minimal "Book Your Stay ───›" Link */}
             <div className="flex lg:justify-end items-center lg:pr-6">
               <button
                 type="button"
                 onClick={onOpenCheckAvailabilityPage}
                 className="group inline-flex items-center gap-4 text-base sm:text-lg font-medium text-white hover:text-[#80B8B4] transition-colors cursor-pointer whitespace-nowrap shrink-0 drop-shadow"
               >
-                <span>Book now</span>
+                <span>Book Your Stay</span>
                 <span className="relative flex items-center">
                   <span className="w-10 sm:w-12 h-px bg-current transition-all duration-300 group-hover:w-16" />
                   <ChevronRight className="w-4 h-4 -ml-2.5" />
@@ -330,10 +308,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Lower-Right Floating Price Callout in ₹ INR + Yellow-Orange 'i' Hotspot Pin + Secondary Glass Dot */}
-          <div className="mt-6 sm:mt-8 lg:mt-1 flex items-center justify-start lg:justify-end lg:pr-48 relative z-30">
+          {/* Lower-Right Floating Price Callout in ₹ INR + Yellow-Orange 'i' Hotspot Pin */}
+          <div className="mt-8 sm:mt-10 lg:mt-2 flex items-center justify-start lg:justify-end lg:pr-48 relative z-30">
             <div className="relative inline-flex flex-col items-start">
-              {/* Yellow-Orange (#F59E0B / #F5931E) 'i' Hotspot Pin Positioned Above Right Edge of Price */}
+              {/* Yellow-Orange (#F5931E) 'i' Hotspot Pin */}
               <div className="self-end -mb-1 -mr-5 relative">
                 <button
                   type="button"
@@ -346,11 +324,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </button>
 
                 {showInfoTooltip && (
-                  <div className="absolute bottom-11 right-0 w-64 p-3.5 rounded-xl bg-[#1D2F2D]/95 backdrop-blur-md border border-[#80B8B4]/35 shadow-2xl text-left z-30">
+                  <div className="absolute bottom-11 right-0 w-60 p-3.5 rounded-xl bg-[#1D2F2D]/95 backdrop-blur-md border border-[#80B8B4]/35 shadow-2xl text-left z-30">
                     <p className="font-serif-editorial text-xs font-semibold text-white">
                       {currentSlide.tooltipTitle}
                     </p>
-                    <p className="mt-1 text-[11px] text-[#D7E4E1]/85 leading-relaxed">
+                    <p className="mt-1 text-[11px] text-[#D7E4E1]/85">
                       {currentSlide.tooltipDetail}
                     </p>
                     <button
@@ -358,7 +336,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       onClick={handleInfoAction}
                       className="mt-2 text-[10px] font-proxima-wide uppercase tracking-[0.18em] text-[#FBBF24] hover:text-white font-semibold cursor-pointer"
                     >
-                      Inspect details ↗
+                      View Details ↗
                     </button>
                   </div>
                 )}
@@ -386,7 +364,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </button>
             </div>
 
-            {/* Subtle Secondary Translucent Glass Hotspot Dot on the Right Swing */}
+            {/* Subtle Secondary Translucent Glass Hotspot Dot */}
             <button
               type="button"
               onClick={handleInfoAction}
@@ -396,27 +374,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Bottom Minimal Baseline Bar: "Your searching" Aligned with Title Axis + 4 Clean Text Tabs */}
+        {/* Bottom Minimal Baseline Bar: Date Range Trigger + 4 Clean Text Tabs */}
         <div className="mt-auto pt-4 relative z-30">
           <div className="border-b border-white/25 lg:pl-[13%] flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-            {/* Bottom-Left: Minimal Selected Dates Trigger */}
+            {/* Bottom-Left: Minimal Date Range Trigger */}
             <button
               type="button"
               onClick={onOpenCheckAvailabilityPage}
-              className="group text-left pb-3.5 border-b-2 border-white -mb-px inline-flex flex-col items-start cursor-pointer sm:min-w-[230px]"
+              className="group text-left pb-3.5 border-b-2 border-white -mb-px inline-flex items-center gap-3 cursor-pointer sm:min-w-[200px]"
             >
-              <span className="text-[11px] text-white/75 font-light tracking-wide">
-                Your searching
-              </span>
-              <span className="mt-1 inline-flex items-center gap-2.5 text-sm sm:text-base font-medium text-white group-hover:text-[#80B8B4] transition-colors tabular-nums">
+              <span className="inline-flex items-center gap-2.5 text-sm sm:text-base font-medium text-white group-hover:text-[#80B8B4] transition-colors tabular-nums">
                 <span>{arriveFormatted}</span>
                 <ChevronRight className="w-3.5 h-3.5 text-white/50" />
                 <span>{departFormatted}</span>
-                <Calendar className="w-4 h-4 text-[#F5931E] ml-1.5" />
               </span>
+              <Calendar className="w-4 h-4 text-[#F5931E] ml-2" />
             </button>
 
-            {/* Bottom-Right: 4 Clean Unboxed Text Tabs with Active White Baseline Indicator */}
+            {/* Bottom-Right: 4 Clean Unboxed Text Tabs */}
             <div
               role="tablist"
               aria-label="Sanctuary Hero Views"

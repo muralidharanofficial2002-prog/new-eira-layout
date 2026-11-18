@@ -179,14 +179,14 @@ export const CheckAvailabilityPage: React.FC<CheckAvailabilityPageProps> = ({
               className="bg-[#F4F6F3] border border-[#D7E4E1] rounded-[28px] lg:rounded-full p-4 sm:p-5 lg:px-7 lg:py-4 shadow-[0_24px_60px_rgba(37,43,45,0.4)] text-[#252B2D]"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-4 items-center">
-                {/* Arrive Date Picker */}
+                {/* Check In Date Picker */}
                 <div className="lg:col-span-2 flex flex-col px-3.5 py-1.5 rounded-2xl hover:bg-[#D7E4E1]/50 transition-colors duration-150">
                   <label
                     htmlFor="subpage-booking-arrive"
                     className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#252B2D]/65 mb-1"
                   >
                     <Calendar className="w-3.5 h-3.5 text-[#80B8B4]" aria-hidden="true" />
-                    Arrive
+                    Check In
                   </label>
                   <input
                     id="subpage-booking-arrive"
@@ -201,7 +201,7 @@ export const CheckAvailabilityPage: React.FC<CheckAvailabilityPageProps> = ({
                   />
                 </div>
 
-                {/* Depart Date Picker */}
+                {/* Check Out Date Picker */}
                 <div className="lg:col-span-3 flex flex-col px-3.5 py-1.5 rounded-2xl hover:bg-[#D7E4E1]/50 transition-colors duration-150 lg:border-l lg:border-[#252B2D]/10">
                   <label
                     htmlFor="subpage-booking-depart"
@@ -209,7 +209,7 @@ export const CheckAvailabilityPage: React.FC<CheckAvailabilityPageProps> = ({
                   >
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-[#80B8B4]" aria-hidden="true" />
-                      Depart
+                      Check Out
                     </span>
                     {nights > 0 && (
                       <span className="text-[10px] font-semibold tracking-[0.08em] text-[#252B2D]/75 tabular-nums">
@@ -351,7 +351,7 @@ export const CheckAvailabilityPage: React.FC<CheckAvailabilityPageProps> = ({
                     className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#252B2D]/65 mb-1"
                   >
                     <Home className="w-3.5 h-3.5 text-[#80B8B4]" aria-hidden="true" />
-                    Room
+                    Room Type
                   </label>
                   <select
                     id="subpage-booking-room"
@@ -365,7 +365,7 @@ export const CheckAvailabilityPage: React.FC<CheckAvailabilityPageProps> = ({
                     }}
                     className="w-full bg-transparent text-sm font-semibold text-[#252B2D] focus:outline-none cursor-pointer truncate"
                   >
-                    <option value="all">All Rooms</option>
+                    <option value="all">All Stays</option>
                     {ROOMS_DATA.map((room) => (
                       <option key={room.id} value={room.id}>
                         {room.name}
@@ -380,7 +380,7 @@ export const CheckAvailabilityPage: React.FC<CheckAvailabilityPageProps> = ({
                     type="submit"
                     className="w-full py-3.5 px-6 rounded-full bg-[#252B2D] text-[#F4F6F3] text-[11px] font-semibold uppercase tracking-[0.16em] hover:bg-[#80B8B4] hover:text-[#252B2D] active:scale-[0.99] transition-all duration-150 whitespace-nowrap shrink-0 cursor-pointer shadow-sm"
                   >
-                    Check availability
+                    Check Availability
                   </button>
                 </div>
               </div>
